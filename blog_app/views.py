@@ -13,6 +13,12 @@ from django.conf import settings
 from django.contrib import messages
 
 
+
+# Test new html
+def test(request):
+    # about = get_object_or_404(About)
+    return render(request, 'base.html')
+
 def post_list(request, tag_slug = None):
     object_list = Post.published.all()
     tag = None
