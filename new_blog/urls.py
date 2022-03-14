@@ -13,12 +13,38 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# from django.contrib import admin
+# from django.urls import path
+# from blog_app import views
+
+# urlpatterns = [
+#     path('admin/', admin.site.urls),
+#     path('', views.test, name='test'),
+    
+# ]
+
 from django.contrib import admin
-from django.urls import path
-from blog_app import views
+from django.urls import path, include
+from django.contrib.sitemaps.views import sitemap
+from blog_app.sitemaps import PostSitemap
+from django.conf import settings
+from django.conf.urls.static import static
+
+sitemaps = {
+    'posts': PostSitemap,
+}
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.test, name='test'),
-    
+    path('', include('blog_app.urls')),
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap')
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+# Modifies default django admin titles and headers with custom app detail.
+admin.site.site_header = "Lydia Admin"
+admin.site.site_title = "Lydia Admin Portal"
+admin.site.index_title = "Welcome to Lydia Blog Portal"

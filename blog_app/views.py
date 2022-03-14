@@ -16,7 +16,6 @@ from django.contrib import messages
 
 # Test new html
 def test(request):
-    # about = get_object_or_404(About)
     return render(request, 'base.html')
 
 def post_list(request, tag_slug = None):
@@ -38,7 +37,7 @@ def post_list(request, tag_slug = None):
         # If page is out of range deliver last page of results
         posts = paginator.page(paginator.num_pages)
     return render(request,
-                  'blog/post/list.html', {'page': page, 'posts': posts, 'tag': tag})
+                  'base.html', {'page': page, 'posts': posts, 'tag': tag})
 
 
 # Esta clase es equivalente a la función post_list, con menos código conseguimos el mismo resultado
@@ -46,7 +45,7 @@ class PostListView(ListView):
     queryset = Post.published.all()
     context_object_name = 'posts'
     paginate_by = 3
-    template_name = 'blog/post/list.html'
+    template_name = 'base.html'
 
 
 def post_detail(request, year, month, day, post):

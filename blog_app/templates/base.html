@@ -1,6 +1,6 @@
 {% load widget_tweaks %}
 <!DOCTYPE html>
-{# {% load blog_tags %} #}
+{% load blog_tags %} 
 {% load static %}
 
 <html lang="es">
@@ -110,30 +110,30 @@
 
             <div class="featured-content d-grid">
 
-                <div class="headline-banner">
+                <!-- <div class="headline-banner">
                     <h3 class="headline fancy-border">
                         <span class="place-items-center">Breaking news</span>
                     </h3>
                     <span class="headline-description">Apple announces a new partnership...</span>
-                </div>
-
-                <a href="./post.html" class="article featured-article featured-article-1">
-                    <img src="{% static 'img/featured/featured-1.jpg' %}" alt="" class="article-image">
-                    <span class="article-category">Technology</span>
+                </div> -->
+                {% for post in posts %}
+                <a href="{{ post.get_absolute_url }}" class="article featured-article featured-article-1">
+                    <img src="{{ post.image.url }}" alt="" class="article-image">
+                    <span class="article-category">{{ tag.name }}</span>
 
                     <div class="article-data-container">
 
                         <div class="article-data">
-                            <span>Dec 5th 2021</span>
+                            <span>{{ post.publish }}</span>
                             <span class="article-data-spacer"></span>
                             <span>8 Min read</span>
                         </div>
 
-                        <h3 class="title article-title">Is VR the future?</h3>
+                        <h3 class="title article-title">{{ post.title }}</h3>
 
                     </div>
                 </a>
-
+                {% endfor %}
                 <a href="./post.html" class="article featured-article featured-article-2">
                     <img src="{% static 'img/featured/featured-2.jpg' %}" alt="" class="article-image">
                     <span class="article-category">Food</span>

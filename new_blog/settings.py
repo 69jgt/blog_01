@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog_app.apps.BlogAppConfig',
     'taggit',
-    'django.contrib.sites',
+    # 'django.contrib.sites' NOTA- COMENTADO PARA QUE FUNCIONE ADMIN,
     'django.contrib.sitemaps',
     'django.contrib.postgres',
     'widget_tweaks',
@@ -96,7 +96,7 @@ WSGI_APPLICATION = 'new_blog.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'blog',
+        'NAME': 'new_blog',
         'USER': 'blog',
         'PASSWORD': '1zzf123x'
     }
