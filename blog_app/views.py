@@ -15,10 +15,10 @@ from django.contrib import messages
 
 
 # Test new html
-def test(request):
-    return render(request, 'base.html')
+# def test(request):
+#     return render(request, 'base.html')
 
-def post_list(request, tag_slug = None):
+def test(request, tag_slug = None):
     object_list = Post.published.all()
     tag = None
     if tag_slug:

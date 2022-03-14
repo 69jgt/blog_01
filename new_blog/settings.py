@@ -142,7 +142,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 # Media files (User uploaded images)
-MEDIA_URL = '/media/'
+MEDIA_URL = '/media/images/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configuración correo electrónico

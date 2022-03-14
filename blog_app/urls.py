@@ -21,7 +21,9 @@ app_name = 'blog_app'
 urlpatterns = [
 #     # post views
       path('', views.test, name='test'),
+      path('<int:year>/<int:month>/<int:day>/<slug:post>', views.test, name='post_detail'),
+      path('tag/<slug:tag_slug>/', views.test, name='post_list_by_tag'),
+      path('feed/', LatestPostsFeed(), name='post_feed'),
 ]
-
 
 # path('', views.PostListView.as_view(), name='post_list'), # Podemos usar la clase PostListView en vez de la función
