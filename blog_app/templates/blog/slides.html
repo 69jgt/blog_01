@@ -1,0 +1,16 @@
+{% load static %}
+
+{% for post in slides %}   
+    <a href="{{ post.get_absolute_url }}" class="article swiper-slide">
+        <img src="{{ post.image.url }}" alt="" class="article-image">
+
+        <div class="article-data-container">
+            <div class="article-data">
+                <span>{{ post.publish|date:"l d F Y" }}</span>
+                <span class="article-data-spacer"></span>
+                <span>{{ post.id }}</span>
+            </div>
+            <h3 class="title article-title">{{ post.title }}</h3>
+        </div>
+    </a>
+{% endfor %}
