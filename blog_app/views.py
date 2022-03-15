@@ -18,7 +18,7 @@ from django.contrib import messages
 # def test(request):
 #     return render(request, 'base.html')
 
-def test(request, tag_slug = None):
+def main(request, tag_slug = None):
     object_list = Post.published.all()
     tag = None
     if tag_slug:
@@ -79,7 +79,7 @@ def post_detail(request, year, month, day, post):
                         .order_by('-same_tags', '-publish')[:4]
 
     return render(request,
-                  'blog/post/detail.html',
+                  'blog/detail.html',
                   {'post': post,
                    'comments': comments,
                    'new_comment': new_comment,

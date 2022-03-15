@@ -6,7 +6,7 @@ from .models import Post
 
 class LatestPostsFeed(Feed):
     title = 'Mi blog'
-    link = reverse_lazy('test')
+    link = reverse_lazy('main')
     description = 'New posts of my blog.'
 
     def items(self):

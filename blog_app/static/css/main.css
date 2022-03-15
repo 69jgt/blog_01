@@ -1,6 +1,7 @@
 /* Import font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+
 /* Custom properties */
 :root{
     --light-color: #fff;
@@ -676,7 +677,7 @@ body.light-theme{
 }
 
 .blog-post-data img{
-    width: 100%;
+    width: 75%;
     height: var(--item-min-height-sm);
     object-fit: cover;
     object-position: center 10%;

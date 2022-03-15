@@ -20,9 +20,9 @@ app_name = 'blog_app'
 
 urlpatterns = [
 #     # post views
-      path('', views.test, name='test'),
-      path('<int:year>/<int:month>/<int:day>/<slug:post>', views.test, name='post_detail'),
-      path('tag/<slug:tag_slug>/', views.test, name='post_list_by_tag'),
+      path('', views.main, name='main'),
+      path('<int:year>/<int:month>/<int:day>/<slug:post>', views.post_detail, name='post_detail'),
+      path('tag/<slug:tag_slug>/', views.main, name='post_list_by_tag'),
       path('feed/', LatestPostsFeed(), name='post_feed'),
 ]
 

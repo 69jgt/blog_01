@@ -1,0 +1,54 @@
+{% extends "blog/post.html" %}
+{% load widget_tweaks %}
+{% load blog_tags %}
+{% load static %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <section class="blog-post section-header-offset">
+        <div class="blog-post-container container">
+            <div class="blog-post-data">
+                <h3 class="title blog-post-title">{{ post.title }}</h3>
+                <div class="article-data">
+                    <span>{{ post.publish|date:"l d F Y" }}</span>
+                    <span class="article-data-spacer"></span>
+                    {% for tag in post.tags.all %}
+                    <span class="article-tag">{{ tag.name }}</span>
+                    {% endfor %}
+                </div>
+                <img src="{{ post.image.url }}" alt="">
+            </div>
+
+            <div class="container">
+                <p>
+                    {{ post.body }}
+                </p>
+                <blockquote class="quote">
+                    <p><span><i class="ri-double-quotes-l"></i></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates, laboriosam voluptatum quos non consequuntur nesciunt necessitatibus tempora quod inventore corporis rem nihil itaque, at provident minus aliquam veritatis. Labore?  <span><i class="ri-double-quotes-r"></i></span></p>
+                </blockquote>
+            
+            <!-- Author banner-->
+                <div class="author d-grid">
+                    <div class="author-image-box">
+                        <img src="{% static 'img/author.png' %}" alt="" class="article-image">
+                    </div>
+                    <div class="author-about">
+                        <h3 class="author-name">Juan G.Trigo</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque quis repellat rerum, possimus cumque dolor repellendus eligendi atque explicabo exercitationem id.</p>
+                        <ul class="list social-media">
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-instagram-line"></i></a>
+                            </li>
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-facebook-circle-line"></i></a>
+                            </li>
+                            <li class="list-item">
+                                <a href="#" class="list-link"><i class="ri-twitter-line"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
