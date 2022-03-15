@@ -356,6 +356,13 @@ body.light-theme{
     z-index: 10;
 }
 
+.article-tag {
+    background-color:var(--primary-background-color);
+    font-size: 1rem;
+    color: var(--light-color);
+    text-transform: uppercase; 
+}
+
 .article-data-container{
     width: 100%;
     position: absolute;

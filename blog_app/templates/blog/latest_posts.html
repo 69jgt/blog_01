@@ -9,10 +9,12 @@
             <div class="trending-news-data">
 
                 <div class="article-data">
-                <!--para formatear la fecha l= nombre del día d= número del día F= nombre mes Y= año con 4 dígitos -->
-                    <span>{{ post.publish|date:"l d F Y" }}</span>
+                <!--para formatear la fecha " l d F Y" l= nombre del día d= número del día F= nombre mes Y= año con 4 dígitos -->
+                    <span>{{ post.publish|date:"d F Y" }}</span>
                     <span class="article-data-spacer"></span>
-                    <span>{{ post.author }}</span>
+                    {% for tag in post.tags.all %}
+                    <span class="article-tag">{{ tag.name }}</span>
+                    {% endfor %}
                 </div>
 
                 <h3 class="title article-title">{{ post.title }}</h3>
