@@ -1,0 +1,29 @@
+{% load widget_tweaks %}
+{% load blog_tags %}
+{% load static %}
+
+{% for post in older %}
+
+    <a href="{{ post.get_absolute_url }}" class="article d-grid">
+        <div class="older-posts-article-image-wrapper">
+            <img src="{{ post.image.url }}" alt="" class="article-image">
+        </div>
+
+        <div class="article-data-container">
+
+            <div class="article-data">
+                <span>{{ post.publish|date:"l d F Y" }}</span>
+                <span class="article-data-spacer"></span>
+                {% for tag in post.tags.all %}
+                    <span>{{ tag.name }}</span>
+                {% endfor %}
+            </div>
+
+            <h3 class="title article-title">{{ post.title }}</h3>
+            <p class="article-description">
+                {{ post.body|markdown|truncatewords_html:22 }}
+            </p>
+
+        </div>
+    </a>
+{% endfor %}
