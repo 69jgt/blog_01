@@ -403,6 +403,7 @@ body.light-theme{
 
 .article-title{
     font-size: var(--font-size-md);
+    text-align: left;
 }
 
 /* Sidebar */

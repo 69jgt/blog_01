@@ -3,14 +3,14 @@
         {% for post in latest_posts %}
         <a href="{{ post.get_absolute_url }}" class="trending-news-box">
             <div class="trending-news-img-box">
-                <span class="trending-number place-items-center">{{ post.id }}</span>
                 <img src="{{ post.image.url}}" alt="" class="article-image">
             </div>
 
             <div class="trending-news-data">
 
                 <div class="article-data">
-                    <span>{{ post.publish }}</span>
+                <!--para formatear la fecha l= nombre del día d= número del día F= nombre mes Y= año con 4 dígitos -->
+                    <span>{{ post.publish|date:"l d F Y" }}</span>
                     <span class="article-data-spacer"></span>
                     <span>{{ post.author }}</span>
                 </div>
