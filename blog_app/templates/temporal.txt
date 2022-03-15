@@ -61,3 +61,82 @@
 {% endif %}
 {% endfor %}
 {% endfor %}  -->
+
+<!-- slides -->
+<a href="#" class="article swiper-slide">
+    <img src="{% static 'img/quick_read/quick_read_1.jpg' %}" alt="" class="article-image">
+
+    <div class="article-data-container">
+        <div class="article-data">
+            <span>23 Dec 2021</span>
+            <span class="article-data-spacer"></span>
+            <span>3 Min read</span>
+        </div>
+        <h3 class="title article-title">Sample article title</h3>
+    </div>
+</a>
+<!-- Slides -->
+<a href="#" class="article swiper-slide">
+    <img src="{% static 'img/quick_read/quick_read_2.jpg' %}" alt="" class="article-image">
+
+    <div class="article-data-container">
+        <div class="article-data">
+            <span>23 Dec 2021</span>
+            <span class="article-data-spacer"></span>
+            <span>3 Min read</span>
+        </div>
+        <h3 class="title article-title">Sample article title</h3>
+    </div>
+</a>
+<!-- Slides -->
+<a href="#" class="article swiper-slide">
+    <img src="{% static 'img/quick_read/quick_read_3.jpg' %}" alt="" class="article-image">
+
+    <div class="article-data-container">
+        <div class="article-data">
+            <span>23 Dec 2021</span>
+            <span class="article-data-spacer"></span>
+            <span>3 Min read</span>
+        </div>
+        <h3 class="title article-title">Sample article title</h3>
+    </div>
+</a>
+<!-- Slides -->
+<a href="#" class="article swiper-slide">
+    <img src="{% static 'img/quick_read/quick_read_4.jpg' %}" alt="" class="article-image">
+
+    <div class="article-data-container">
+        <div class="article-data">
+            <span>23 Dec 2021</span>
+            <span class="article-data-spacer"></span>
+            <span>3 Min read</span>
+        </div>
+        <h3 class="title article-title">Sample article title</h3>
+    </div>
+</a>
+<!-- Slides -->
+<a href="#" class="article swiper-slide">
+    <img src="{% static 'img/quick_read/quick_read_5.jpg' %}" alt="" class="article-image">
+
+    <div class="article-data-container">
+        <div class="article-data">
+            <span>23 Dec 2021</span>
+            <span class="article-data-spacer"></span>
+            <span>3 Min read</span>
+        </div>
+        <h3 class="title article-title">Sample article title</h3>
+    </div>
+</a>
+<!-- Slides -->
+<a href="#" class="article swiper-slide">
+    <img src="{% static 'img/quick_read/quick_read_6.jpg' %}" alt="" class="article-image">
+
+    <div class="article-data-container">
+        <div class="article-data">
+            <span>23 Dec 2021</span>
+            <span class="article-data-spacer"></span>
+            <span>3 Min read</span>
+        </div>
+        <h3 class="title article-title">Sample article title</h3>
+    </div>
+</a>

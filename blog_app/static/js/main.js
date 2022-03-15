@@ -78,11 +78,11 @@ const swiper = new Swiper(".swiper", {
     },
     //Responsive breakpoints for how many slides to show at that view
     breakpoints: {
-        // 700px and up shoes 2 slides
+        // 700px and up shows 2 slides
         700: {
           slidesPerView: 2
         },
-        // 1200px and up shoes 3 slides
+        // 1200px and up shows 3 slides
         1200: {
             slidesPerView: 3
         }

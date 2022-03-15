@@ -22,6 +22,10 @@ def show_trend(count=5):
     trend = Post.published.order_by('-publish')[:count]
     return {'trend': trend}
 
+@register.inclusion_tag('blog/slides.html')
+def show_slides(count=5):
+    slides = Post.published.order_by('publish')[:count]
+    return {'slides': slides}
 
 @register.simple_tag
 def get_most_commented_posts(count=5):
