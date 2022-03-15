@@ -27,6 +27,11 @@ def show_slides(count=5):
     slides = Post.published.order_by('publish')[:count]
     return {'slides': slides}
 
+@register.inclusion_tag('blog/older_posts.html')
+def show_older(count=6):
+    older = Post.published.order_by('publish')[:count]
+    return {'older': older}
+
 @register.simple_tag
 def get_most_commented_posts(count=5):
     return Post.published.annotate(
