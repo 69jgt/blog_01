@@ -21,9 +21,9 @@
             </div>
 
             <div class="container">
-                <p>
-                    {{ post.body }}
-                </p>
+               
+                    {{ post.body|markdown }}
+                
                 <blockquote class="quote">
                     <p><span><i class="ri-double-quotes-l"></i></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates, laboriosam voluptatum quos non consequuntur nesciunt necessitatibus tempora quod inventore corporis rem nihil itaque, at provident minus aliquam veritatis. Labore?  <span><i class="ri-double-quotes-r"></i></span></p>
                 </blockquote>
