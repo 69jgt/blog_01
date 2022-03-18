@@ -360,6 +360,7 @@ body.light-theme{
 .article-tag {
     background-color:var(--primary-background-color);
     font-size: 1rem;
+    padding: 6px;
     color: var(--light-color);
     text-transform: uppercase; 
 }
