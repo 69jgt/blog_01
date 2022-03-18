@@ -69,7 +69,7 @@ button {
 }
 
 i{
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-sm);
 }
 /* Theme color change */
 body.light-theme{
@@ -677,9 +677,9 @@ body.light-theme{
 }
 
 .blog-post-data img{
-    width: 75%;
-    height: var(--item-min-height-sm);
-    object-fit: cover;
+    width: 80%;
+    height: var(--item-min-height-md);
+    object-fit: fill;
     object-position: center 10%;
 }
 
