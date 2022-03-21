@@ -1,4 +1,5 @@
 {% load static %}
+{% load read %}
 
 {% for post in slides %}   
     <a href="{{ post.get_absolute_url }}" class="article swiper-slide">
@@ -8,7 +9,7 @@
             <div class="article-data">
                 <i class="ri-time-line"></i><span>{{ post.publish|date:"l d F Y" }}</span>
                 <span class="article-data-spacer"></span>
-                <span>{{ post.id }}</span>
+                <span>{{ post.body|readtime }}</span>
             </div>
             <h3 class="title article-title">{{ post.title }}</h3>
         </div>
