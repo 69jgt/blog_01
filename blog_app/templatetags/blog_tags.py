@@ -33,12 +33,16 @@ def show_older(count=6):
     older = Post.published.order_by('publish')[:count]
     return {'older': older}
 
+# @register.inclusion_tag('blog/posts_list.html')
+# def show_list(all):
+#     post_list = Post.published.order_by('publish')
+#     return {'post_list': post_list}
+
 @register.simple_tag
 def get_most_commented_posts(count=5):
     return Post.published.annotate(
                total_comments=Count('comments')
            ).order_by('-total_comments')[:count]
-
 
 # Markdown is a plain-text formatting syntax
 @register.filter(name='markdown')

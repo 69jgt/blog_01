@@ -39,13 +39,33 @@ def main(request, tag_slug = None):
     return render(request,
                   'base.html', {'page': page, 'posts': posts, 'tag': tag})
 
+def post_list(request, tag_slug = None):
+    object_list = Post.published.all()
+    tag = None
+    if tag_slug:
+        tag = get_object_or_404(Tag, slug = tag_slug)
+        object_list = object_list.filter(tags__in = [tag])
+
+    # Pagination section
+    paginator = Paginator(object_list, 4)  # 4 posts in each page
+    page = request.GET.get('page')
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer deliver the first page
+        posts = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range deliver last page of results
+        posts = paginator.page(paginator.num_pages)
+    return render(request,
+                  'blog/post_list.html', {'page': page, 'posts': posts, 'tag': tag})
 
 # Esta clase es equivalente a la función post_list, con menos código conseguimos el mismo resultado
 class PostListView(ListView):
     queryset = Post.published.all()
     context_object_name = 'posts'
-    paginate_by = 3
-    template_name = 'base.html'
+    paginate_by = 6
+    template_name = 'blog/post_list.html'
 
 
 def post_detail(request, year, month, day, post):
