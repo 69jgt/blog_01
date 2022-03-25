@@ -21,6 +21,7 @@
     --font-size-lg: 3rem;
     --font-size-xl: 4rem;
     --gap: 2rem;
+    --gap-l:5rem;
     --margin-sm: 2rem;
     --margin-md: 3rem;
     --item-min-height-sm: 20rem;
@@ -538,11 +539,22 @@ body.light-theme{
     margin-bottom: var(--margin-sm);
 }
 
+/* Post list */
 .list-posts {
     margin-top: 5rem;
 }
+
+.list-container{
+    max-width: 150rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    
+}
+
 .list-posts-grid-wrapper{
-    gap: var(--gap);
+    gap: var(--gap-l);
+    align-content: center;
+    justify-content: center;      
 }
 
 .list-posts-article-image-wrapper,
@@ -564,11 +576,44 @@ body.light-theme{
 }
 
 .see-more-btn i{
-    transition: transform .25s;
+    transition: transform .4s;
 }
 
 .see-more-btn:hover i{
     transform: translateX(.5rem);
+}
+
+.see-more-btn-right:hover i{
+    transform: translateX(.5rem);
+}
+
+.see-more-btn-left:hover i{
+    transform: translateX(-0.5rem);
+}
+
+/* Pagination Post list */
+.row {
+    flex-wrap: wrap;
+}
+
+.pagination {
+    margin:4rem;
+    font-weight:bold;
+    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+}
+
+.arrow {
+    font-size: 4rem;  
+}
+
+.see-more-btn-right:hover i{
+    transform: translateX(.8rem);
+}
+
+.see-more-btn-left:hover i{
+    transform: translateX(-0.8rem);
 }
 
 /* Popular tags */

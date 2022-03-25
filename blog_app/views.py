@@ -64,7 +64,7 @@ def post_list(request, tag_slug = None):
 class PostListView(ListView):
     queryset = Post.published.all()
     context_object_name = 'posts'
-    paginate_by = 6
+    paginate_by = 2
     template_name = 'blog/post_list.html'
 
 

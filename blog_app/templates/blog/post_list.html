@@ -100,7 +100,7 @@
     </div>
     <section class="list-posts section">
 
-        <div class="container">
+        <div class="list-container">
 
             <h2 class="title section-title" data-name="Todas las entradas">Todas las entradas</h2>
 
@@ -133,9 +133,9 @@
             {% endfor %}
 
             </div>
-
+            <!-- Pagination -->
             <div class="see-more-container">
-                <a href="#" class="btn see-more-btn place-items-center">See more <i class="ri-arrow-right-s-line"></i></i></a>
+                {% include 'pagination.html' with page=page_obj %}
             </div>
 
         </div>
