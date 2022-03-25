@@ -33,6 +33,7 @@ def show_older(count=6):
     older = Post.published.order_by('publish')[:count]
     return {'older': older}
 
+
 # @register.inclusion_tag('blog/posts_list.html')
 # def show_list(all):
 #     post_list = Post.published.order_by('publish')

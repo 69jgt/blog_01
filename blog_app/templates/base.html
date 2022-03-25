@@ -31,22 +31,13 @@
             <div class="menu" id="menu">
                 <ul class="list">
                     <li class="list-item">
-                        <a href="/" class="list-link current">Home</a>
+                        <a href="/" class="list-link current">Inicio</a>
                     </li>
                     <li class="list-item">
-                        <a href="#" class="list-link">Categories</a>
+                        <a href="#" class="list-link">Sobre mi</a>
                     </li>
                     <li class="list-item">
-                        <a href="#" class="list-link">Reviews</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="#" class="list-link">News</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="#" class="list-link">Membership</a>
-                    </li>
-                    <li class="list-item">
-                        <a href="#" class="list-link">Contact</a>
+                        <a href="#" class="list-link">Contacto</a>
                     </li>
                     <li class="list-item screen-lg-hidden">
                         <a href="/admin" class="list-link">Admin</a>
@@ -79,25 +70,10 @@
     </header>
 
     <!-- Search -->
-    <div class="search-form-container container" id="search-form-container">
+   
+    {% block content %}
 
-        <div class="form-container-inner">
-
-            <form action="" class="form">
-                <input class="form-input" type="text" placeholder="¿Que estás buscando?">
-                <button class="btn form-btn" type="submit">
-                    <i class="ri-search-line"></i>
-                </button>
-            </form>
-            <span class="form-note">Ó presiona ESC para cerrar.</span>
-
-        </div>
-
-        <button class="btn form-close-btn place-items-center" id="form-close-btn">
-            <i class="ri-close-line"></i>
-        </button>
-
-    </div>
+    {% endblock %}
 
     <!-- Featured articles -->
     <section class="featured-articles section section-header-offset">

@@ -57,6 +57,7 @@ def post_list(request, tag_slug = None):
     except EmptyPage:
         # If page is out of range deliver last page of results
         posts = paginator.page(paginator.num_pages)
+        
     return render(request,
                   'blog/post_list.html', {'page': page, 'posts': posts, 'tag': tag})
 
@@ -160,7 +161,7 @@ def post_search(request):
             # ).filter(similarity__gt = 0.1).order_by('-similarity')
 
     return render(request,
-                  'blog/post/search.html',
+                  'blog/search.html',
                   {'form': form,
                    'query': query,
                    'results': results})

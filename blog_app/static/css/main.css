@@ -1,6 +1,8 @@
 /* Import font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+@import url('https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Taviraj:wght@300&display=swap');
+
 
 /* Custom properties */
 :root{
@@ -15,6 +17,7 @@
     --transparent-light-color: rgba(255,255,255,.05);
     --transparent-dark-color: rgba(0,0,0,.75);
     --font-family: 'Poppins', sans-serif;
+    --font-family-2: 'Nothing You Could Do', cursive;
     --font-size-xsm: 1.2rem;
     --font-size-sm: 1.6rem;
     --font-size-md: 2.4rem;
@@ -439,6 +442,7 @@ body.light-theme{
     font-size: var(--font-size-md);
     text-align: center;
     padding: 1rem;
+    font-family: var(--font-family-2);
 }
 
 .trending-news-img-box{
@@ -470,17 +474,18 @@ body.light-theme{
 /* Quick read */
 .section-title{
     position: relative;
-    font-size: var(--font-size-md);
+    font-size: var(--font-size-lg);
     margin-bottom: 6rem;
+    font-family: var(--font-family-2);
 }
 
 .section-title::after{
     content: attr(data-name);
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-xl);
     text-transform: uppercase;
     opacity: .1;
     position: absolute;
-    top: 1.5rem;
+    top: 1.3rem;
     left: 2rem;
 }
 
