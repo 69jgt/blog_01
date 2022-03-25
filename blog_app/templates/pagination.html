@@ -1,0 +1,14 @@
+<div class=" row pagination">
+  
+    {% if page.has_previous %}
+      <a href="?page={{ page.previous_page_number }}" class="btn see-more-btn-left place-items-center"><i class="arrow ri-skip-back-mini-fill"></i></a>
+    {% endif %}
+    <span class="current">
+      Pág. {{ page.number }} de {{ page.paginator.num_pages }}
+    </span>
+    {% if page.has_next %}
+      <a href="?page={{ page.next_page_number }}" class="btn see-more-btn-right place-items-center"><i class="arrow ri-skip-forward-mini-fill"></i></a>
+    {% endif %}
+  
+</div>
+
