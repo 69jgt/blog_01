@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'blog/post_search.html' %}
 {% load widget_tweaks %}
 {% load blog_tags %}
 
@@ -6,41 +6,39 @@
 
 {% block content %}
 
-<div class="search-form-container container" id="search-form-container">
-    {% if query %}
-        <h1>Posts que contienen '{{ query }}'</h1>
-        <h3>
-        {% with results.count as total_results %}
-            Se han encontrado {{ total_results }} resultado{{ total_results|pluralize }}
-        {% endwith %}
-        </h3>
-        {% for post in results %}
-        <h4><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h4>
-        {{ post.body|markdown|truncatewords_html:12 }}
-        {% empty %}
-        <p>La búsqueda no ha devuelto ningún resultado.</p>
-        {% endfor %}
-        <p><a href="{% url 'blog:post_search' %}">Buscar de nuevo</a></p>
+
+        <!-- <h2 class="title section-title" data-name="Entradas anteriores">Entradas anteriores</h2> -->
+        
+        <div class="container result-container">
+            {% if query %}
+            <h1>Posts que contienen '{{ query }}'</h1>
+            <h3>
+            {% with results.count as total_results %}
+                Se han encontrado {{ total_results }} resultado{{ total_results|pluralize }}
+            {% endwith %}
+            </h3>
+            {% for post in results %}
+            <h4><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h4>
+            {{ post.body|markdown|truncatewords_html:12 }}
+            {% empty %}
+            <p>La búsqueda no ha devuelto ningún resultado.</p>
+            {% endfor %}
+            <p><a href="{% url 'blog:post_search' %}">Buscar de nuevo</a></p>
+
+        </div>   
+    
+
     {% else %}
-
-    <h1 class="text-primary mb-5">Buscar en los Post</h1>
-
         <div class="form-container-inner">
 
-            <form method='get'>
-                {# <input class="form-input" type="text" placeholder="¿Que estás buscando?"> #}
+            <form class="form" method='get'>
                 {% render_field form.query class="form-input" type="text" placeholder="¿Que estás buscando?" %}
                 <button class="btn form-btn" type="submit">
                     <i class="ri-search-line"></i>
                 </button>
             </form>
-            <span class="form-note">O presiona ESC para cerrar.</span>
-
+            
         </div>
-
-        <button class="btn form-close-btn place-items-center" id="form-close-btn">
-            <i class="ri-close-line"></i>
-        </button>
+       
     {% endif %}
-    </div>
 {% endblock %}

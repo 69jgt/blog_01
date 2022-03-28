@@ -35,6 +35,8 @@ sitemaps = {
 }
 
 urlpatterns = [
+    # path('grappelli/', include('grappelli.urls')), # grappelli URLS
+    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
     path('admin/', admin.site.urls),
     path('', include('blog_app.urls', namespace='blog')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
