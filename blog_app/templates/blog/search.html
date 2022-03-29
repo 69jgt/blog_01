@@ -1,4 +1,5 @@
-{% extends 'blog/post_search.html' %}
+{# {% extends 'blog/post_search.html' %} #}
+{% extends 'base_2.html' %}
 {% load widget_tweaks %}
 {% load blog_tags %}
 
@@ -6,10 +7,13 @@
 
 {% block content %}
 
+<section class="list-posts section">
+
+    <div class="list-container">
 
         <!-- <h2 class="title section-title" data-name="Entradas anteriores">Entradas anteriores</h2> -->
         
-        <div class="container result-container">
+        <div class="list-posts-grid-wrapper d-grid">
             {% if query %}
             <h1>Posts que contienen '{{ query }}'</h1>
             <h3>
@@ -18,21 +22,42 @@
             {% endwith %}
             </h3>
             {% for post in results %}
-            <h4><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h4>
-            {{ post.body|markdown|truncatewords_html:12 }}
+            <a href="{{ post.get_absolute_url }}" class="article d-grid">
+                <div class="older-posts-article-image-wrapper">
+                    <img src="{{ post.image.url }}" alt="" class="article-image">
+                </div>
+
+                <div class="article-data-container">
+
+                    <div class="article-data">
+                        <i class="ri-time-line"></i><span>{{ post.publish|date:"l d F Y" }}</span>
+                        <span class="article-data-spacer"></span>
+                        {% for tag in post.tags.all %}
+                            <span class="article-tag">{{ tag.name }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <h3 class="title article-title">{{ post.title }}</h3>
+                    <p class="article-description">
+                        {{ post.body|markdown|truncatewords_html:22 }}
+                    </p>
+
+                </div>
+            </a>
+            
             {% empty %}
             <p>La búsqueda no ha devuelto ningún resultado.</p>
             {% endfor %}
-            <p><a href="{% url 'blog:post_search' %}">Buscar de nuevo</a></p>
+            <a href="{% url 'blog:post_search' %}">Buscar de nuevo</a>
 
         </div>   
     
 
     {% else %}
-        <div class="form-container-inner">
+        <div class="result-container">
 
             <form class="form" method='get'>
-                {% render_field form.query class="form-input" type="text" placeholder="¿Que estás buscando?" %}
+                {% render_field form.query class="form-input" type="text" placeholder="Buscar..." %}
                 <button class="btn form-btn" type="submit">
                     <i class="ri-search-line"></i>
                 </button>
@@ -41,4 +66,6 @@
         </div>
        
     {% endif %}
+    </div>
+</section>
 {% endblock %}

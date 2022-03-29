@@ -6,7 +6,9 @@
 
 /* Custom properties */
 :root{
-    --light-color: #fff;
+    /* --light-color: #fff;
+    --light-color-alt: #afb6cd; */
+    --light-color: #fef5ef;
     --light-color-alt: #afb6cd;
     --primary-background-color: #131417;
     --secondary-background-color: #252830;
@@ -74,14 +76,15 @@ button {
 }
 
 i{
-    font-size: var(--font-size-sm);
+  font-size: var(--font-size-md);
 }
+
 /* Theme color change */
 body.light-theme{
     --light-color: #3d3d3d;
     --light-color-alt: rgba(0,0,0,.6);
-    --primary-background-color: #fff;
-    --secondary-background-color: #f1f1f1;
+    --primary-background-color: #fef5ef;
+    --secondary-background-color: #e6e6ea;
     --hover-light-color: #fff;
     --transparent-dark-color: var(--secondary-background-color);
     --transparent-light-color: rgba(0,0,0,.1);
@@ -91,6 +94,13 @@ body.light-theme{
     max-width: 160rem;
     margin: 0 auto;
     padding: 0 1.5rem;
+}
+
+.content {
+    min-height: calc(100vh - 44rem);
+}
+.container-footer {
+    height: 39rem;
 }
 
 .place-items-center{
@@ -154,6 +164,11 @@ body.light-theme{
     flex-direction: column;
 }
 
+.list-link {
+    color: #002137;
+    font-size: var(--font-size-md);
+}
+
 .list-link.current{
     color: var(--light-color);
 }
@@ -169,7 +184,8 @@ body.light-theme{
 .list-link:hover,
 .btn:hover,
 .btn:hover span{
-    color: var(--light-color);
+    /* color: var(--light-color-alt); */
+    color: #ff5400;
 }
 
 .moon-icon{
@@ -219,10 +235,10 @@ body.light-theme{
 }
 
 .result-container {
-    width: 100%;
-    height: 60vh;
+    width: 70%;
+    min-height: 53.7vh;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: var(--gap);
     text-align: center;
     margin: auto;
@@ -922,6 +938,10 @@ body.light-theme{
     .sign-up-btn{
         padding: 4px;
     }
+
+    .sign-up-btn span{
+        color:#f86624;
+    } 
 
     /* Fancy button animation effect */
     .btn.fancy-border:hover::before{
