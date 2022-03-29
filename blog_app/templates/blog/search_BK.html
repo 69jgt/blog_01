@@ -1,0 +1,51 @@
+{# {% extends 'blog/post_search.html' %} #}
+{% extends 'base_2.html' %}
+{% load widget_tweaks %}
+{% load blog_tags %}
+
+{% block title %}Buscar{% endblock %}
+
+{% block content %}
+
+<section class="section">
+
+    <div class="container search-form-container">
+
+        <!-- <h2 class="title section-title" data-name="Entradas anteriores">Entradas anteriores</h2> -->
+        
+        <div class="container result-container">
+            {% if query %}
+            <h1>Posts que contienen '{{ query }}'</h1>
+            <h3>
+            {% with results.count as total_results %}
+                Se han encontrado {{ total_results }} resultado{{ total_results|pluralize }}
+            {% endwith %}
+            </h3>
+            {% for post in results %}
+            <h4><a href='{{ post.get_absolute_url }}'>{{ post.title }}</a></h4>
+            {{ post.body|markdown|truncatewords_html:12 }}
+            
+            {% empty %}
+            <p>La búsqueda no ha devuelto ningún resultado.</p>
+            {% endfor %}
+            <a href="{% url 'blog:post_search' %}">Buscar de nuevo</a>
+
+        </div>   
+    
+
+    {% else %}
+        <div class="form-container-inner">
+
+            <form class="form" method='get'>
+                {% render_field form.query class="form-input" type="text" placeholder="¿Que estás buscando?" %}
+                <button class="btn form-btn" type="submit">
+                    <i class="ri-search-line"></i>
+                </button>
+            </form>
+            
+        </div>
+       
+    {% endif %}
+    </div>
+</section>
+{% endblock %}
