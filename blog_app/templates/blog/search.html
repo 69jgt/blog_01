@@ -15,7 +15,7 @@
         
         <div class="list-posts-grid-wrapper d-grid">
             {% if query %}
-            <h1>Posts que contienen '{{ query }}'</h1>
+            <h1>Estas publicaciones contienen '{{ query }}'</h1>
             <h3>
             {% with results.count as total_results %}
                 Se han encontrado {{ total_results }} resultado{{ total_results|pluralize }}
@@ -39,7 +39,7 @@
 
                     <h3 class="title article-title">{{ post.title }}</h3>
                     <p class="article-description">
-                        {{ post.body|markdown|truncatewords_html:22 }}
+                        {{ post.body|markdown|truncatewords_html:12 }}
                     </p>
 
                 </div>

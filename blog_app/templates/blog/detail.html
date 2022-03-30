@@ -3,7 +3,6 @@
 {% load widget_tweaks %}
 {% load blog_tags %}
 {% load static %}
-cambios CSS y página de búsqueda
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
@@ -18,18 +17,78 @@ cambios CSS y página de búsqueda
                     <span class="article-tag">{{ tag.name }}</span>
                     {% endfor %}
                 </div>
-                <img src="{{ post.image.url }}" alt="">
+                <img src="{{ post.image.url }}" alt="Post image">
+                
             </div>
-
+            
             <div class="container">
                
                     {{ post.body|markdown }}
-                
-                <blockquote class="quote">
+             <blockquote class="quote">
                     <p><span><i class="ri-double-quotes-l"></i></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates, laboriosam voluptatum quos non consequuntur nesciunt necessitatibus tempora quod inventore corporis rem nihil itaque, at provident minus aliquam veritatis. Labore?  <span><i class="ri-double-quotes-r"></i></span></p>
-                </blockquote>
-            
-            <!-- Author banner-->
+             </blockquote>
+            <!--Display similar post with shared tags -->
+
+            <h2>Posts similares</h2>
+            {% for post in similar_posts %}
+            <p>
+                <a href='{{ post.get_absolute_url }}' class="text-decoration-none">{{ post.title }}</a>
+            </p>
+            {% empty %}
+            Aún no existen posts similares.
+            {% endfor %}
+
+            <!-- Display the total number of comments for a post -->
+
+            {% with comments.count as total_comments %}
+            <h2>
+                {{ total_comments }} comentario{{ total_comments|pluralize }}
+            </h2>
+            {% endwith %}    
+               
+            <!--Display the list of comments -->
+
+            {% for comment in comments %}
+            <div class='comment'>
+                <p class='info'>
+                Comentado {{ forloop.counter }} por {{ comment.name }}
+                {{ comment.created }}
+                </p>
+                {{ comment.body|linebreaks }}
+            </div>
+            {% empty %}
+            <p>Aún no existen comentarios.</p>
+            {% endfor %}
+
+            <!--Display a form for users to add a new comment -->
+
+            {% if new_comment %}
+            <h2>Tú comentario ha sido añadido.</h2>
+            {% else %}
+            <h2 class="">Añade un nuevo comentario</h2>
+
+            <div class="contact-form">
+                <form method='post' id="comForm">
+                    {% csrf_token %}
+                    <div>
+                    <label for="name" class="required">Nombre *</label>
+                    {% render_field comment_form.name class="form-control" type="text" required="required" tabindex="1" autofocus="autofocus" placeholder="Tu nombre" id="name" %}
+                    </div>
+                    <div>
+                    <label for="email" class="required">Correo electrónico *</label>
+                    {% render_field comment_form.email class="form-control" type="email" required="required" tabindex="1" autofocus="autofocus" placeholder="example@mail.com" id="email" %}
+                    </div>
+                    <div>
+                    <label for="body" class="required">Comentario *</label>
+                    {% render_field comment_form.body class="form-control" tabindex="5" required="required" id="body" rows="10" %}
+                    </div>
+                    <div>
+                    <button type='submit' class="css-button-sliding-to-left--sand">Enviar</button>
+                    </div>    
+                </form>
+            </div>
+            {% endif %}
+                <!-- Author banner-->
                 <div class="author d-grid">
                     <div class="author-image-box">
                         <img src="{% static 'img/author.png' %}" alt="" class="article-image">

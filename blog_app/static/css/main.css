@@ -298,6 +298,65 @@ body.light-theme{
     height: 4rem;
     display: flex;
 }
+
+/* Formulario de contacto */
+.contact-form {
+    /* background-color:rgba(72,72,72,0.9); */
+    display:flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;  
+    padding: 10px 20px 30px 20px;
+    max-width:100%;
+    /* float: left;
+    left: 50%;
+    position: absolute;
+    margin-top:30px;
+    margin-left: -260px; */
+    border-radius:7px;
+    -webkit-border-radius:7px;
+    -moz-border-radius:7px;
+ }
+ .contact-form input,   
+ .contact-form select,   
+ .contact-form textarea,   
+ .contact-form label { 
+    margin-bottom: 2px;
+    
+ } 
+ .contact-form input,   
+ .contact-form select,   
+ .contact-form textarea { 
+    width:100%;
+    background: var(--light-color);
+    border: 0; 
+    -moz-border-radius: 4px;  
+    -webkit-border-radius: 4px;  
+    border-radius: 4px;
+    margin-bottom: 25px;  
+    padding: 5px;  
+ }  
+ .contact-form input:focus,   
+ .contact-form select:focus,   
+ .contact-form textarea:focus {  
+    background-color: #E5E6E7; 
+ }  
+ .contact-form textarea {
+    width:100%;
+    height: 150px;
+ }
+
+ input:required, textarea:required {  
+    box-shadow: none;
+    -moz-box-shadow: none;  
+    -webkit-box-shadow: none;  
+    -o-box-shadow: none;  
+ } 
+ .contact-form .required {  
+    font-weight:bold;  
+    color: #E5E6E7;      
+ }
+
 /* Link with button style */
 .css-button-sliding-to-left--sand {
     width: 18rem;
