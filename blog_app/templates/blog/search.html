@@ -9,7 +9,7 @@
 
 <section class="list-posts section">
 
-    <div class="list-container">
+    <div class="list-container content">
 
         <!-- <h2 class="title section-title" data-name="Entradas anteriores">Entradas anteriores</h2> -->
         
@@ -48,24 +48,24 @@
             {% empty %}
             <p>La búsqueda no ha devuelto ningún resultado.</p>
             {% endfor %}
-            <a href="{% url 'blog:post_search' %}">Buscar de nuevo</a>
+            <a class="css-button-sliding-to-left--sand" href="{% url 'blog:post_search' %}">Buscar de nuevo</a>
 
         </div>   
     
-
+    </div>
     {% else %}
-        <div class="result-container">
+    <div class="result-container content">
 
-            <form class="form" method='get'>
-                {% render_field form.query class="form-input" type="text" placeholder="Buscar..." %}
-                <button class="btn form-btn" type="submit">
-                    <i class="ri-search-line"></i>
-                </button>
-            </form>
-            
-        </div>
+        <form class="form" method='get'>
+            {% render_field form.query class="form-input" type="text" placeholder="Buscar..." %}
+            <button class="btn form-btn" type="submit">
+                <i class="ri-search-line"></i>
+            </button>
+        </form>
+        
+    </div>
        
     {% endif %}
-    </div>
+    
 </section>
 {% endblock %}
