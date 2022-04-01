@@ -51,7 +51,7 @@
             {% for comment in comments %}
             <div class='comment'>
                 <p class='info'>
-                Comentado {{ forloop.counter }} por {{ comment.name }}
+                Comentario {{ forloop.counter }} por {{ comment.name }}
                 {{ comment.created }}
                 </p>
                 {{ comment.body|linebreaks }}
@@ -70,21 +70,20 @@
             <div class="contact-form">
                 <form method='post' id="comForm">
                     {% csrf_token %}
-                    <div>
+                    
                     <label for="name" class="required">Nombre *</label>
-                    {% render_field comment_form.name class="form-control" type="text" required="required" tabindex="1" autofocus="autofocus" placeholder="Tu nombre" id="name" %}
-                    </div>
-                    <div>
+                    {% render_field comment_form.name class="form-input" type="text" required="required" tabindex="1" autofocus="autofocus" placeholder="Tu nombre" id="name" %}
+                    
+                    
                     <label for="email" class="required">Correo electrónico *</label>
-                    {% render_field comment_form.email class="form-control" type="email" required="required" tabindex="1" autofocus="autofocus" placeholder="example@mail.com" id="email" %}
-                    </div>
-                    <div>
+                    {% render_field comment_form.email class="form-input" type="email" required="required" tabindex="1" autofocus="autofocus" placeholder="example@mail.com" id="email" %}
+                    
                     <label for="body" class="required">Comentario *</label>
-                    {% render_field comment_form.body class="form-control" tabindex="5" required="required" id="body" rows="10" %}
-                    </div>
-                    <div>
+                    {% render_field comment_form.body class="form-input" tabindex="5" required="required" id="body" rows="10" %}
+                    
+                    <div class="form-div">
                     <button type='submit' class="css-button-sliding-to-left--sand">Enviar</button>
-                    </div>    
+                   
                 </form>
             </div>
             {% endif %}

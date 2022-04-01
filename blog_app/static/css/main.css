@@ -218,7 +218,7 @@ body.light-theme{
 }
 
 /* Search */
-.search-form-container{
+.search-form-container {
     width: 100%;
     /* max-width: 100%; */
     /* height: 60vh; */
@@ -301,49 +301,36 @@ body.light-theme{
 
 /* Formulario de contacto */
 .contact-form {
-    /* background-color:rgba(72,72,72,0.9); */
     display:flex;
-    justify-content: center; 
+    justify-content:space-evenly; 
     align-items: center; 
     flex-direction: column;  
-    padding: 10px 20px 30px 20px;
-    max-width:100%;
-    /* float: left;
-    left: 50%;
-    position: absolute;
-    margin-top:30px;
-    margin-left: -260px; */
-    border-radius:7px;
-    -webkit-border-radius:7px;
-    -moz-border-radius:7px;
+    max-width: 100%;
  }
- .contact-form input,   
- .contact-form select,   
- .contact-form textarea,   
- .contact-form label { 
-    margin-bottom: 2px;
-    
- } 
+
  .contact-form input,   
  .contact-form select,   
  .contact-form textarea { 
+    margin-bottom: 2rem;
+    border: 2px solid var(--secondary-background-color);   
+ }
+ 
+ .contact-form label { 
+    margin-bottom: 2.5rem;
+    
+ }
+
+ .contact-form input, 
+ .contact-form select,   
+ .contact-form textarea { 
     width:100%;
-    background: var(--light-color);
-    border: 0; 
-    -moz-border-radius: 4px;  
-    -webkit-border-radius: 4px;  
-    border-radius: 4px;
-    margin-bottom: 25px;  
-    padding: 5px;  
+    background-color: var(--primary-background-color);
  }  
- .contact-form input:focus,   
- .contact-form select:focus,   
- .contact-form textarea:focus {  
-    background-color: #E5E6E7; 
- }  
+
  .contact-form textarea {
     width:100%;
     height: 150px;
+    font-size: var(--font-size-sm);
  }
 
  input:required, textarea:required {  
@@ -353,8 +340,8 @@ body.light-theme{
     -o-box-shadow: none;  
  } 
  .contact-form .required {  
-    font-weight:bold;  
-    color: #E5E6E7;      
+    font-weight: bold;  
+    color: var(--light-color-alt);
  }
 
 /* Link with button style */
@@ -875,7 +862,7 @@ body.light-theme{
 }
 
 .blog-post-container .container{
-    max-width: 90rem;
+    max-width: 100rem;
     padding: 0;
     display: flex;
     flex-direction: column;
@@ -898,6 +885,7 @@ body.light-theme{
 .author{
     margin-top: 5rem;
     gap: var(--gap);
+    max-width: 100%;
 }
 
 .author{
