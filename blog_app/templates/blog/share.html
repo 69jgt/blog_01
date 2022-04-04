@@ -1,0 +1,44 @@
+{% extends 'base_2.html' %}
+{# {% extends "blog/post.html" %} #}
+{% load widget_tweaks %}
+{% load blog_tags %}
+{% load static %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+    <section class="list-posts section">
+
+        <div class="list-container content">
+            {% if sent %}
+            <div class="share-container">
+                <h1>Correo enviado correctamente</h1>
+                <p>
+                <b>{{ post.title }}</b> fue enviado a {{ form.cleaned_data.para }}
+                </p>
+            </div>
+            {% else %}
+            <div class="contact-form content-share">
+                <h1>Compartir <b>{{ post.title }}</b> por correo <span></h1>
+                <form method='post' id="shareForm">
+                    {% csrf_token %}
+                    
+                    <label for="name" class="required">Nombre *</label>
+                    {% render_field form.nombre class="form-input" type="text" required="required" tabindex="1" placeholder="Tu nombre" id="name" %}
+                    
+                    <label for="email" class="required">Correo electrónico *</label>
+                    {% render_field form.micorreo class="form-input" type="email" required="required" tabindex="1" placeholder="example@mail.com" id="email" %}
+
+                    <label for="email2" class="required">Correo electrónico destinatario *</label>
+                    {% render_field form.para class="form-input" type="email" required="required" tabindex="1" placeholder="example@mail.com" id="email2" %}
+                    
+                    <label for="comentario" class="required">Comentario *</label>
+                    {% render_field form.comentario class="form-input" tabindex="5" required="required" id="comentario" rows="10" %}
+                    
+                    <button type='submit' class="css-button-sliding-to-left--sand">Enviar</button>
+                    
+                    </form>
+            </div>
+        </div>    
+        {% endif %}
+    </section>
+{% endblock %}
