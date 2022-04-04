@@ -10,6 +10,8 @@
     --light-color-alt: #afb6cd; */
     --light-color: #fef5ef;
     --light-color-alt: #afb6cd;
+    --red: #d64045;
+	--black: #050505;
     --primary-background-color: #131417;
     --secondary-background-color: #252830;
     --hover-light-color: var(--light-color);
@@ -23,6 +25,7 @@
     --font-size-xsm: 1.2rem;
     --font-size-sm: 1.6rem;
     --font-size-md: 2.4rem;
+    --font-size-l: 2.7rem;
     --font-size-lg: 3rem;
     --font-size-xl: 4rem;
     --gap: 2rem;
@@ -41,8 +44,17 @@
     box-sizing: border-box;
 }
 
+/* Custom scrollbar Firefox Browsers */
+
+* {
+	scrollbar-width: thin;
+	scrollbar-color: var(--red) var(--black);
+  }
+
+
 html{
     font-size: 62.5%;
+    scroll-behavior: smooth; 
 }
 
 body{
@@ -52,7 +64,27 @@ body{
     background-color: var(--primary-background-color);
     letter-spacing: 1px;
     transition: background-color .25s,color .25s;
+    overflow-x: hidden;
+  	overflow-y: scroll;
+	scrollbar-width: auto;
+	scrollbar-color: var(--red) var(--black);
 }
+
+/* Scroll bar Webkit */
+
+body::-webkit-scrollbar {
+	width: 15px;               /* width of the entire scrollbar */
+  }
+  
+  body::-webkit-scrollbar-track {
+	background: var(--black);        /* color of the tracking area */
+  }
+  
+  body::-webkit-scrollbar-thumb {
+	background-color: var(--red);    /* color of the scroll thumb */
+	border-radius: 20px;       /* roundness of the scroll thumb */
+	border: 3px solid var(--black);  /* creates padding around scroll thumb */
+  }
 
 a{
     color: inherit;
@@ -77,6 +109,20 @@ button {
 
 i{
   font-size: var(--font-size-md);
+}
+
+/* Divider */
+.divider-container {
+    display: flex;
+    justify-content: center;
+    background-color: var(--primary-background-color);
+}
+.divider {
+    height: 3px;
+    width: 100%;
+    margin: 5rem 0 5rem 0;
+    background: blue;
+    background: linear-gradient(90deg, hsl(0, 0%, 20%), hsl(0, 0%, 70%), hsl(0, 0%, 20%));
 }
 
 /* Theme color change */
@@ -220,17 +266,7 @@ body.light-theme{
 /* Search */
 .search-form-container {
     width: 100%;
-    /* max-width: 100%; */
-    /* height: 60vh; */
-    /* background-color: var(--primary-background-color); */
-    /* position: fixed;
-    top: 0;
-    left: 0; 
-    z-index: 9999; */
     display: flex;
-    /* opacity: 0; */
-    /* transform: scale(0); */
-    /* transition: opacity .5s; */
 }
 
 .result-container {
@@ -245,7 +281,7 @@ body.light-theme{
     margin-left: 12rem;
 }
 
-.form-container-inner{
+.form-container-inner {
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -253,7 +289,7 @@ body.light-theme{
     text-align: center;
 }
 
-.form{
+.form {
     display: flex;
     justify-content: center;
     flex-direction: row;
@@ -261,7 +297,7 @@ body.light-theme{
 }
 
 .form-input,
-.form-btn{
+.form-btn {
     display: inline-block;
     outline: none;
     height: 6rem;
@@ -270,13 +306,13 @@ body.light-theme{
     color: var(--light-color-alt);
 }
 
-.form-input{
+.form-input {
     border-right: none;
     width: 100%;
     background-color: var(--primary-background-color);
 }
 
-.form-btn{
+.form-btn {
     margin-left: -.5rem;
     border-left: none;
     background-color: var(--secondary-background-color);
@@ -284,12 +320,12 @@ body.light-theme{
     width: 8rem;
 }
 
-.form-note{
+.form-note {
     font-size: var(--font-size-xsm);
     align-self: flex-end;
 }
 
-.form-close-btn{
+.form-close-btn {
     position: absolute;
     top: 1.5rem;
     right: 1.5rem;
@@ -297,6 +333,14 @@ body.light-theme{
     width: 4rem;
     height: 4rem;
     display: flex;
+}
+
+/* COMENTARIOS */
+
+.info {
+    font-weight: bold;
+    font-size:var(--font-size-md);
+    color: var(--light-color-alt);
 }
 
 /* Formulario de contacto */
@@ -586,14 +630,14 @@ body.light-theme{
 /* Quick read */
 .section-title{
     position: relative;
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-l);
     margin-bottom: 6rem;
     font-family: var(--font-family-2);
 }
 
 .section-title::after{
     content: attr(data-name);
-    font-size: var(--font-size-xl);
+    font-size: var(--font-size-l);
     text-transform: uppercase;
     opacity: .1;
     position: absolute;
@@ -869,52 +913,52 @@ body.light-theme{
     gap: var(--gap);
 }
 
-.quote{
+.quote {
     background-color: var(--secondary-background-color);
     padding: 2.5rem;
 }
 
-.quote p{
+.quote p {
     font-style: italic;
 }
 
-.quote span{
+.quote span {
     font-size: 5rem;
 }
 
-.author{
-    margin-top: 5rem;
+.author {
+    margin: 5rem 0 5rem 0;
     gap: var(--gap);
     max-width: 100%;
 }
 
-.author{
+.author {
     background-color: var(--secondary-background-color);
 }
 
-.author-image-box{
+.author-image-box {
     position: relative;
     height: var(--item-min-height-sm);
 }
 
-.author-about{
+.author-about {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-.author-name{
+.author-name {
     color: var(--light-color);
     font-weight: 400;
 }
 
-.author-about p{
+.author-about p {
     max-width: 50rem;
     margin-bottom: 1rem;
 }
 
-.author-about .social-media{
+.author-about .social-media {
     margin-top: auto;
     margin-bottom: 0;
 }

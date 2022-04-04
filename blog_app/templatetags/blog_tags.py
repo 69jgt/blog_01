@@ -23,6 +23,13 @@ def show_trend(count=5):
     trend = Post.published.order_by('-publish')[:count]
     return {'trend': trend}
 
+@register.simple_tag
+def get_most_commented_posts(count=3):
+    return Post.published.annotate(
+               total_comments=Count('comments')
+           ).order_by('-total_comments')[:count]
+
+
 @register.inclusion_tag('blog/slides.html')
 def show_slides(count=5):
     slides = Post.published.order_by('publish')[:count]
@@ -39,11 +46,6 @@ def show_older(count=6):
 #     post_list = Post.published.order_by('publish')
 #     return {'post_list': post_list}
 
-@register.simple_tag
-def get_most_commented_posts(count=5):
-    return Post.published.annotate(
-               total_comments=Count('comments')
-           ).order_by('-total_comments')[:count]
 
 # Markdown is a plain-text formatting syntax
 @register.filter(name='markdown')

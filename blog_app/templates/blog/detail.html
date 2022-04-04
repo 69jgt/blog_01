@@ -24,76 +24,18 @@
             <div class="container">
                
                     {{ post.body|markdown }}
-             <blockquote class="quote">
-                    <p><span><i class="ri-double-quotes-l"></i></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates, laboriosam voluptatum quos non consequuntur nesciunt necessitatibus tempora quod inventore corporis rem nihil itaque, at provident minus aliquam veritatis. Labore?  <span><i class="ri-double-quotes-r"></i></span></p>
-             </blockquote>
-            <!--Display similar post with shared tags -->
+                
+                <blockquote class="quote">
+                        <p><span><i class="ri-double-quotes-l"></i></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia voluptates, laboriosam voluptatum quos non consequuntur nesciunt necessitatibus tempora quod inventore corporis rem nihil itaque, at provident minus aliquam veritatis. Labore?  <span><i class="ri-double-quotes-r"></i></span></p>
+                </blockquote>
 
-            <h2>Posts similares</h2>
-            {% for post in similar_posts %}
-            <p>
-                <a href='{{ post.get_absolute_url }}' class="text-decoration-none">{{ post.title }}</a>
-            </p>
-            {% empty %}
-            Aún no existen posts similares.
-            {% endfor %}
-
-            <!-- Display the total number of comments for a post -->
-
-            {% with comments.count as total_comments %}
-            <h2>
-                {{ total_comments }} comentario{{ total_comments|pluralize }}
-            </h2>
-            {% endwith %}    
-               
-            <!--Display the list of comments -->
-
-            {% for comment in comments %}
-            <div class='comment'>
-                <p class='info'>
-                Comentario {{ forloop.counter }} por {{ comment.name }}
-                {{ comment.created }}
-                </p>
-                {{ comment.body|linebreaks }}
-            </div>
-            {% empty %}
-            <p>Aún no existen comentarios.</p>
-            {% endfor %}
-
-            <!--Display a form for users to add a new comment -->
-
-            {% if new_comment %}
-            <h2>Tú comentario ha sido añadido.</h2>
-            {% else %}
-            <h2 class="">Añade un nuevo comentario</h2>
-
-            <div class="contact-form">
-                <form method='post' id="comForm">
-                    {% csrf_token %}
-                    
-                    <label for="name" class="required">Nombre *</label>
-                    {% render_field comment_form.name class="form-input" type="text" required="required" tabindex="1" autofocus="autofocus" placeholder="Tu nombre" id="name" %}
-                    
-                    
-                    <label for="email" class="required">Correo electrónico *</label>
-                    {% render_field comment_form.email class="form-input" type="email" required="required" tabindex="1" autofocus="autofocus" placeholder="example@mail.com" id="email" %}
-                    
-                    <label for="body" class="required">Comentario *</label>
-                    {% render_field comment_form.body class="form-input" tabindex="5" required="required" id="body" rows="10" %}
-                    
-                    <div class="form-div">
-                    <button type='submit' class="css-button-sliding-to-left--sand">Enviar</button>
-                   
-                </form>
-            </div>
-            {% endif %}
                 <!-- Author banner-->
                 <div class="author d-grid">
                     <div class="author-image-box">
                         <img src="{% static 'img/author.png' %}" alt="" class="article-image">
                     </div>
                     <div class="author-about">
-                        <h3 class="author-name">Juan G.Trigo</h3>
+                        <h3 class="author-name">Juan G. Trigo</h3>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eaque quis repellat rerum, possimus cumque dolor repellendus eligendi atque explicabo exercitationem id.</p>
                         <ul class="list social-media">
                             <li class="list-item">
@@ -108,6 +50,81 @@
                         </ul>
                     </div>
                 </div>
+                <!-- Divider -->
+                <div class="divider-container">
+                
+                    <div class="divider"></div>
+                </div> 
+                <!--Display similar post with shared tags -->
+
+                <h2>Posts similares</h2>
+                {% for post in similar_posts %}
+                <p>
+                    <a href='{{ post.get_absolute_url }}' class="text-decoration-none">{{ post.title }}</a>
+                </p>
+                {% empty %}
+                Aún no existen posts similares.
+                {% endfor %}
+
+                <!-- Divider -->
+                <div class="divider-container">
+                
+                    <div class="divider"></div>
+                </div>
+                <!-- Display the total number of comments for a post -->
+
+                {% with comments.count as total_comments %}
+                <h2>
+                    Este post tiene {{ total_comments }} comentario{{ total_comments|pluralize }}
+                </h2>
+                {% endwith %}    
+                
+                <!--Display the list of comments -->
+
+                {% for comment in comments %}
+                <div class='comment'>
+                    <p class='info'>
+                    {{ forloop.counter }} .- Comentado por {{ comment.name }} el 
+                    {{ comment.created }}
+                    </p>
+                    <blockquote class="quote"> {{ comment.body|linebreaks }} </blockquote>
+                </div>
+                {% empty %}
+                <p>Aún no existen comentarios.</p>
+                {% endfor %}
+
+                <!--Display a form for users to add a new comment -->
+
+                {% if new_comment %}
+                <h2>Tú comentario ha sido añadido.</h2>
+                {% else %}
+                <!-- Divider -->
+                    <div class="divider-container">
+                    
+                        <div class="divider"></div>
+                    </div>
+                <h2 class="info">Añade un nuevo comentario</h2>
+
+                <div class="contact-form">
+                    <form method='post' id="comForm">
+                        {% csrf_token %}
+                        
+                        <label for="name" class="required">Nombre *</label>
+                        {% render_field comment_form.name class="form-input" type="text" required="required" tabindex="1" placeholder="Tu nombre" id="name" %}
+                        
+                        
+                        <label for="email" class="required">Correo electrónico *</label>
+                        {% render_field comment_form.email class="form-input" type="email" required="required" tabindex="1" placeholder="example@mail.com" id="email" %}
+                        
+                        <label for="body" class="required">Comentario *</label>
+                        {% render_field comment_form.body class="form-input" tabindex="5" required="required" id="body" rows="10" %}
+                        
+                        <button type='submit' class="css-button-sliding-to-left--sand">Enviar</button>
+                    
+                    </form>
+                </div>
+                {% endif %}
+               
             </div>
         </div>
     </section>
