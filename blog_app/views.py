@@ -123,12 +123,12 @@ def post_share(request, post_id):
             post_url = request.build_absolute_uri(post.get_absolute_url())
             subject = f"{cd['nombre']} recomendamos que leas {post.title}"
             message = f"Lee {post.title} en {post_url}\n\n" \
-                      f"{cd['nombre']}\'s comentario: {cd['comentario']}"
+                      f"{cd['nombre']} dice: {cd['comentario']}"
             send_mail(subject, message, 'tutmotsis69@gmail.com', [cd['para']])
             sent = True
     else:
         form = EmailPostForm()
-    return render(request, 'blog/post/share.html', {'post': post,
+    return render(request, 'blog/share.html', {'post': post,
                                                     'form': form,
                                                     'sent': sent})
 

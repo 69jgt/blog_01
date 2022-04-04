@@ -67,7 +67,7 @@ const swiper = new Swiper(".swiper", {
     loop: true,
     // Autoplay
     autoplay: {
-        delay: 2000,
+        delay: 4000,
       },
     // How many slides to show
     slidesPerView: 1,
@@ -94,3 +94,10 @@ const swiper = new Swiper(".swiper", {
         }
     }   
 });
+
+const swiper2 = new Swiper(".mySwiper", {
+    spaceBetween: 10,
+    slidesPerView: 4,
+    freeMode: true,
+    watchSlidesProgress: true,
+  });

@@ -12,6 +12,7 @@
     --light-color-alt: #afb6cd;
     --red: #d64045;
 	--black: #050505;
+    --yellow: #FCC729;
     --primary-background-color: #131417;
     --secondary-background-color: #252830;
     --hover-light-color: var(--light-color);
@@ -111,6 +112,17 @@ i{
   font-size: var(--font-size-md);
 }
 
+.icon {
+    line-height: 50px;
+    vertical-align: middle;
+    padding-right: 0.8rem;
+}
+
+#text {
+    line-height: 50px;
+    padding-right: 0.8rem;
+}
+
 /* Divider */
 .divider-container {
     display: flex;
@@ -144,6 +156,10 @@ body.light-theme{
 
 .content {
     min-height: calc(100vh - 64rem);
+}
+
+.content-share {
+    min-height: calc(100vh - 59.5rem);
 }
 .container-footer {
     height: 44.5rem;
@@ -230,7 +246,7 @@ body.light-theme{
 .btn:hover,
 .btn:hover span{
     /* color: var(--light-color-alt); */
-    color: #FCC729;
+    color: var(--yellow);
 }
 
 .moon-icon{
@@ -335,6 +351,20 @@ body.light-theme{
     display: flex;
 }
 
+/* COMPARTIR ENTRADA */
+
+.share-container {
+    width: 70%;
+    height: 53.7vh;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+    gap: var(--gap-l);
+    text-align: center;
+    margin-left: 12rem;
+}
+
 /* COMENTARIOS */
 
 .info {
@@ -422,21 +452,21 @@ body.light-theme{
     top: 0;
     width: 0;
     height: 100%;
-    background: #FCC729;
+    background: var(--yellow);
   }
 
 /* Form JavaScript styles */
-.search-form-container.activated{
+.search-form-container.activated {
     opacity: 1;
     transform: scale(1);
 }
 
 /* Featured articles */
-.featured-articles{
+.featured-articles {
     padding-block: 2rem;
 }
 
-.section-header-offset{
+.section-header-offset {
     margin-top: 7.4rem;
 }
 
@@ -645,30 +675,30 @@ body.light-theme{
     left: 2rem;
 }
 
-.article.swiper-slide{
+.article .swiper-slide {
     height: 40rem;
 }
 
 /* Quick read - Swiper */
-.swiper-wrapper{
+.swiper-wrapper {
     height: auto;
 }
-.swiper-controls{
+.swiper-controls {
     width: 3.5rem;
     height: 3.5rem;
     background-color: var(--secondary-background-color);
 }
 
-.swiper-controls::after{
+.swiper-controls::after {
     font-size: 1.6rem;
     color: var(--light-color);
 }
 
-.swiper-pagination{
+.swiper-pagination {
     bottom: .5rem !important;
 }
 
-.swiper-pagination-bullet{
+.swiper-pagination-bullet {
     background-color:var(--light-color);
 }
 

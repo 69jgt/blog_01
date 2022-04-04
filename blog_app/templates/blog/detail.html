@@ -54,7 +54,23 @@
                 <div class="divider-container">
                 
                     <div class="divider"></div>
-                </div> 
+                </div>
+
+                <!-- Compartir entrada por email -->
+                
+                    {# <a href='{% url "blog:post_share" post.id %}' class="text-decoration-none"> #}
+                    <a href='{% url "blog:post_share" post.id %}'>
+                        <span id="text">Comparte este post </span><i id="icon" class="icon ri-mail-line ri-3x"></i>
+                        <!--<i class="icon ri-facebook-circle-line ri-3x"></i>
+                        <i class="icon ri-twitter-line ri-3x"></i><i class="icon ri-instagram-line ri-3x"></i> -->
+                    </a>
+               
+                
+                <!-- Divider -->
+                <div class="divider-container">
+                
+                    <div class="divider"></div>
+                </div>
                 <!--Display similar post with shared tags -->
 
                 <h2>Posts similares</h2>
