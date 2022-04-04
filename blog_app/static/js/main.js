@@ -63,6 +63,12 @@ themeToggleBtn.addEventListener('click', function () {
 
 // Swiper
 const swiper = new Swiper(".swiper", {
+    // Loop, permite
+    loop: true,
+    // Autoplay
+    autoplay: {
+        delay: 2000,
+      },
     // How many slides to show
     slidesPerView: 1,
     // How much space between slides
