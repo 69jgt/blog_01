@@ -385,26 +385,22 @@ body.light-theme{
  .contact-form input,   
  .contact-form select,   
  .contact-form textarea { 
-    margin-bottom: 2rem;
-    border: 2px solid var(--secondary-background-color);   
+    margin-bottom: 3rem;
+    margin-top: 2rem;
+    border: 2px solid var(--secondary-background-color);
+    width:100%;
+    background-color: var(--primary-background-color);   
  }
  
- .contact-form label { 
+ /* .gap { 
     margin-bottom: 2.5rem;
     
- }
-
- .contact-form input, 
- .contact-form select,   
- .contact-form textarea { 
-    width:100%;
-    background-color: var(--primary-background-color);
- }  
+ } */
 
  .contact-form textarea {
     width:100%;
     height: 150px;
-    font-size: var(--font-size-sm);
+    font-size: var(--font-size-md);
  }
 
  input:required, textarea:required {  

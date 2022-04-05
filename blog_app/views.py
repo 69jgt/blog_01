@@ -170,22 +170,23 @@ def post_search(request):
 # Formulario de contacto
 
 def post_contact(request):
+    send = False
     if request.method == "POST":
         subject = request.POST["asunto"]
         message = request.POST["mensaje"] + "\n" + "Correo del usuario: " + request.POST["email"]
         from_email = settings.EMAIL_HOST_USER
         recipient_list = ["tutmotsis69@gmail.com"]
-        try:
 
+        try:
             send_mail(subject, message, from_email, recipient_list)
             messages.success(request, "Muchas gracias, mensaje enviado correctamente.")
         # return render(request, 'blog/post/contact.html')
 
         except BadHeaderError:
             return HttpResponse('Invalid header found.')
-        return redirect('blog/post/list.html')
+        return redirect('blog/success.html')
 
-    return render(request, 'blog/post/contact.html')
+    return render(request, 'blog/contact.html')
 
 
 # Página sobre mi

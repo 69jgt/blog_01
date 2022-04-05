@@ -27,6 +27,7 @@ urlpatterns = [
       path('tag/<slug:tag_slug>/', views.main, name='post_list_by_tag'),
       # path('post_list/', views.post_list, name='post_list'),
       path('post_list/', views.PostListView.as_view(), name='post_list'),
+      path('contact/', views.post_contact,  name='post_contact'),
       path('feed/', LatestPostsFeed(), name='post_feed'),
 ]
 
