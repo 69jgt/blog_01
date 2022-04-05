@@ -1,0 +1,42 @@
+{% extends 'base_2.html' %}
+{% load widget_tweaks %}
+{% load blog_tags %}
+{% load static %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+
+<section class="list-posts section">
+    <div class="list-container content">
+        {% if messages %}      
+        <div class="share-container">
+            {% for message in messages %}
+                <h2>{{ message }}</h2>
+            {% endfor %}           
+        </div>
+        {% endif %} 
+        <div class="contact-form content-share">
+            <form action="contact" name="form4" id="form4" method="POST" class="needs-validation"
+                            enctype="multipart/form-data" novalidate>
+                {% csrf_token %}
+              
+                <label for="asunto" class="required gap">Asunto *</label>
+                <input type="text" class="form-input" id="asunto" name="asunto"
+                placeholder="Asunto" pattern="^[0-9a-zA-Z áéíóúÁÉÍÓÚñÑ]{4,80}$" required
+                data-placement="right" title="Asunto">    
+        
+                <label for="email" class="required gap">Correo Electrónico *</label>
+                <input type="email" class="form-input" id="email" aria-describedby="emailHelp" name="email"
+                placeholder="example@example.com" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                    required data-toggle="tooltip" data-placement="right" title="Correo Electrónico">
+                            
+                <label for="mensaje" class="required gap">Mensaje *</label>
+                <textarea class="form-input" id="mensaje" name="mensaje" rows="8" cols="40"
+                placeholder="Mensaje" data-placement="right" title="Mensaje"></textarea>
+                <button type='submit' class="css-button-sliding-to-left--sand">Enviar</button>
+            </form>
+        </div>
+    </div>    
+</section>
+
+{% endblock %}
