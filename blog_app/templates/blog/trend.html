@@ -1,3 +1,5 @@
+{% load widget_tweaks %}
+{% load blog_tags %}
 {% load static %}
 {% load read %}
 
@@ -16,7 +18,11 @@
                 <div class="article-data">
                     <i class="ri-time-line"></i><span>{{ post.publish|date:"l d F Y" }}</span>
                     <span class="article-data-spacer"></span>
-                    <span>{{ post.body|readtime }}</span>
+                    <!-- <span>{{ post.body|readtime }}</span> -->
+                    <span>Prueba</span>
+                    
+                    <!-- Display the total number of comments for a post -->
+                   
                 </div>
 
                 <h3 class="title article-title">{{ post.title }}</h3>

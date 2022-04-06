@@ -104,15 +104,17 @@
                                 <i class="ri-time-line"></i><span>{{ post.publish|date:"l d F Y" }}</span>
                                 <span class="article-data-spacer"></span>
                                 <span>{{ post.body|readtime }}</span>
+                                <span class="article-data-spacer"></span>                           
+                                <span>
+                                    {{ post.comments.count }} comentario{{ post.comments.count|pluralize }}
+                                </span>
                             </div>
 
                             <h3 class="title article-title">{{ post.title }}</h3>
 
                         </div>
                     </a>
-                
-                {% endfor %}
-               
+               {% endfor %}
             </div>
             <!-- Side Content -->
             <div class="sidebar d-grid">
