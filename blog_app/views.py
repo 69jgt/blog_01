@@ -10,7 +10,7 @@ from .models import Post, Comment, About
 from .forms import EmailPostForm, CommentForm, SearchForm
 from taggit.models import Tag
 from django.conf import settings
-from django.contrib import messages
+
 
 
 
@@ -18,6 +18,7 @@ from django.contrib import messages
 # def test(request):
 #     return render(request, 'base.html')
 
+# Página principal del Blog
 def main(request, tag_slug = None):
     object_list = Post.published.all()
     tag = None
@@ -39,6 +40,7 @@ def main(request, tag_slug = None):
     return render(request,
                   'base.html', {'page': page, 'posts': posts, 'tag': tag})
 
+# Listado con paginación de todas las entradas publicadas
 def post_list(request, tag_slug = None):
     object_list = Post.published.all()
     tag = None
@@ -68,7 +70,7 @@ class PostListView(ListView):
     paginate_by = 2
     template_name = 'blog/post_list.html'
 
-
+# Página con la vista completa de la entrada seleccionada
 def post_detail(request, year, month, day, post):
     post = get_object_or_404(Post, slug = post,
                              status = 'published',
@@ -108,7 +110,7 @@ def post_detail(request, year, month, day, post):
                    'similar_posts': similar_posts,
                    })
 
-
+#  Sección compartir entrada por correo electrónico
 def post_share(request, post_id):
     # Retrieve post by id
     post = get_object_or_404(Post, id = post_id, status = 'published')
@@ -134,7 +136,6 @@ def post_share(request, post_id):
 
 
 # Buscador basado en Postgres
-
 def post_search(request):
     form = SearchForm()
     query = None
@@ -168,29 +169,20 @@ def post_search(request):
 
 
 # Formulario de contacto
-
 def post_contact(request):
-    send = False
     if request.method == "POST":
         subject = request.POST["asunto"]
         message = request.POST["mensaje"] + "\n" + "Correo del usuario: " + request.POST["email"]
         from_email = settings.EMAIL_HOST_USER
         recipient_list = ["tutmotsis69@gmail.com"]
-
-        try:
-            send_mail(subject, message, from_email, recipient_list)
-            messages.success(request, "Muchas gracias, mensaje enviado correctamente.")
-        # return render(request, 'blog/post/contact.html')
-
-        except BadHeaderError:
-            return HttpResponse('Invalid header found.')
-        return redirect('blog/success.html')
+       
+        send_mail(subject, message, from_email, recipient_list)
+        return render(request, 'blog/success.html')
 
     return render(request, 'blog/contact.html')
 
 
 # Página sobre mi
-
 def post_about(request):
     about = get_object_or_404(About)
     return render(request, 'blog/post/about.html', {'about': about})
