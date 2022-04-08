@@ -159,10 +159,7 @@ body.light-theme{
 }
 
 .content-share {
-    min-height: calc(100vh - 45rem);
-}
-.container-footer {
-    height: 20rem;
+    min-height: calc(100vh - 47rem);
 }
 
 .place-items-center{
@@ -863,11 +860,12 @@ body.light-theme{
 /* Footer */
 .footer{
     background-color: var(--secondary-background-color);
+    min-height: 20rem;
 }
 
 .footer-container{
     gap: var(--gap);
-    height: 20rem;
+    /* height: 20rem; */
 }
 
 .company-data{
@@ -1215,3 +1213,10 @@ body.light-theme{
       border-color: transparent
     }
   }
+
+  @media screen and (max-width: 768px) {
+
+    .typing-effect {
+        font-size: 1.2rem;
+    }
+}
