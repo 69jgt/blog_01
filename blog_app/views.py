@@ -176,7 +176,7 @@ def post_contact(request):
         from_email = settings.EMAIL_HOST_USER
         recipient_list = ["tutmotsis69@gmail.com"]
        
-        send_mail(subject, message, from_email, recipient_list)
+        send_mail(subject, message, from_email, recipient_list, fail_silently=False,)
         return render(request, 'blog/success.html')
 
     return render(request, 'blog/contact.html')

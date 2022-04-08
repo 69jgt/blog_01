@@ -159,10 +159,10 @@ body.light-theme{
 }
 
 .content-share {
-    min-height: calc(100vh - 59.5rem);
+    min-height: calc(100vh - 45rem);
 }
 .container-footer {
-    height: 44.5rem;
+    height: 20rem;
 }
 
 .place-items-center{
@@ -867,6 +867,7 @@ body.light-theme{
 
 .footer-container{
     gap: var(--gap);
+    height: 20rem;
 }
 
 .company-data{
@@ -1195,13 +1196,13 @@ body.light-theme{
 
 /* Typing effect test */
 .typing-effect {
-    width: 22ch;
+    width: 31ch;
     animation: typing 2s steps(20), effect .5s step-end infinite alternate;
     white-space: nowrap;
     overflow: hidden;
     border-right: 3px solid;
     font-family: monospace;
-    font-size: 2em;
+    font-size: 2rem;
   }
   @keyframes typing {
     from {
