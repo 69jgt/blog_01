@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     # 'grappelli',
     'jet.dashboard',
     'jet',
+    'ckeditor',
+    'ckeditor_uploader',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +55,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_extensions',
     'readtime',
+    
 ]
 
 MIDDLEWARE = [
@@ -121,6 +124,10 @@ JET_THEMES = [
 	'title': 'Light Gray'
 	}
 ]
+
+# CKEDITOR
+#ckeditor upload path
+CKEDITOR_UPLOAD_PATH="uploads/"
 
 WSGI_APPLICATION = 'new_blog.wsgi.application'
 
