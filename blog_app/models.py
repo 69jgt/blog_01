@@ -6,6 +6,7 @@ from taggit.managers import TaggableManager
 from django import forms
 
 
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super().get_queryset().filter(status='published')

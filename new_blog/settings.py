@@ -39,8 +39,6 @@ INSTALLED_APPS = [
     # 'grappelli',
     'jet.dashboard',
     'jet',
-    'ckeditor',
-    'ckeditor_uploader',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -55,6 +53,7 @@ INSTALLED_APPS = [
     'widget_tweaks',
     'django_extensions',
     'readtime',
+    
     
 ]
 
@@ -125,9 +124,7 @@ JET_THEMES = [
 	}
 ]
 
-# CKEDITOR
-#ckeditor upload path
-CKEDITOR_UPLOAD_PATH="uploads/"
+
 
 WSGI_APPLICATION = 'new_blog.wsgi.application'
 
@@ -191,6 +188,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 # Media files (User uploaded images)
 MEDIA_URL = '/media/images/'
