@@ -37,8 +37,8 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # 'grappelli',
-    'jet.dashboard',
-    'jet',
+    # 'jet.dashboard',
+    # 'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
