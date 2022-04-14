@@ -73,7 +73,10 @@
 
     </header>
 
-
+    <!-- Loader test -->
+    <div class="loader-box">
+        <div id="loader"></div>
+    </div>
     
     <!-- Featured articles -->
     <section class="featured-articles section section-header-offset">
@@ -338,9 +341,21 @@
         
     </footer>
 
+    <!-- jQuery 3.6.0 -->
+    <script
+			  src="https://code.jquery.com/jquery-3.6.0.min.js"
+			  integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+			  crossorigin="anonymous">
+    </script>
     <!-- Swiper.js -->
     <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
     <!-- Custom script -->
     <script src="{% static 'js/main.js' %}"></script>
+    <!-- Loader jQuery Script -->
+    <script>
+        $(window).on('load', function () {
+            $('.loader-box').fadeOut(6000)
+        })
+    </script>
 </body>
 </html>
