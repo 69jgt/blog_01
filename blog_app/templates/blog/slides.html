@@ -9,7 +9,7 @@
             <div class="article-data">
                 <i class="ri-time-line"></i><span>{{ post.publish|date:"l d F Y" }}</span>
                 <span class="article-data-spacer"></span>
-                <span>{{ post.body|readtime }}</span>
+                <span>{# post.body|readtime #}</span>
             </div>
             <h3 class="title article-title">{{ post.title }}</h3>
         </div>

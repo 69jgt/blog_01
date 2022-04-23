@@ -4,6 +4,7 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from taggit.managers import TaggableManager
 from django import forms
+from ckeditor_uploader.fields import RichTextUploadingField
 
 
 
@@ -27,7 +28,8 @@ class Post(models.Model):
                               upload_to='images')
     auth_image = models.ImageField(default='article-default.jpg',
                                    upload_to='images')
-    body = models.TextField()
+    # body = models.TextField()
+    body = RichTextUploadingField(verbose_name='Body',null=True,blank=True)
     publish = models.DateTimeField(default=timezone.now)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)

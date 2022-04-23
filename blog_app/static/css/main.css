@@ -180,6 +180,14 @@ body.light-theme{
     display: none;
 }
 
+.responsive_img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    margin: 2rem 0 2rem 0;
+    /* Prevent the image from stretching. So it crops the image to prevent from awkward stretching */
+}
+
 /* Loader */
 .loader-box {
     position: fixed;
