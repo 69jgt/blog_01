@@ -23,12 +23,19 @@ Including another URLconf
     
 # ]
 
-from django.contrib import admin
-from django.urls import path, include
+
 from django.contrib.sitemaps.views import sitemap
 from blog_app.sitemaps import PostSitemap
-from django.conf import settings
+from django.urls import include, path, re_path
 from django.conf.urls.static import static
+from django.views.generic.base import RedirectView
+from django.contrib import admin
+from django.conf import settings
+import os.path
+
+from wagtail.core import urls as wagtail_urls
+from wagtail.admin import urls as wagtailadmin_urls
+from wagtail.documents import urls as wagtaildocs_urls
 
 sitemaps = {
     'posts': PostSitemap,
@@ -38,10 +45,16 @@ urlpatterns = [
     # path('grappelli/', include('grappelli.urls')), # grappelli URLS
     # path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
     # path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')), # Django JET dashboard URLS
-    path('admin/', admin.site.urls),
-    path('', include('blog_app.urls', namespace='blog')),
+    path('django-admin/', admin.site.urls),
+    path('admin/', include(wagtailadmin_urls)),
+    path('documents/', include(wagtaildocs_urls)),
+    # path('', include('blog_app.urls', namespace='blog')),
+    re_path(r'', include('blog_app.urls')),
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
          name='django.contrib.sitemaps.views.sitemap'),
+    # For anything not caught by a more specific rule above, hand over to
+    # Wagtail's serving mechanism
+    re_path(r'', include(wagtail_urls)),
     
  ] # + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

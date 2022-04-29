@@ -36,17 +36,32 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'blog_app.apps.BlogAppConfig',
     # 'grappelli',
     # 'jet.dashboard',
     # 'jet',
+     'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail.core',
+
+    'taggit',
+    'modelcluster',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'blog_app.apps.BlogAppConfig',
-    'taggit',
+    
     # 'django.contrib.sites' NOTA- COMENTADO PARA QUE FUNCIONE ADMIN,
     'django.contrib.sitemaps',
     'django.contrib.postgres',
@@ -65,6 +80,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'new_blog.urls'
@@ -84,44 +101,6 @@ TEMPLATES = [
             ],
         },
     },
-]
-
-# JET THEMES (ADMIN CUSTOMIZABLE PICKER)
-JET_THEMES = [
-	{
-	'theme': 'default', # theme folder name
-	'color': '#47bac1', # color of the theme's button in user menu
-	'title': 'Default' # theme title
-    },
-
-	{
-	'theme': 'green',
-	'color': '#44b78b',
-	'title': 'Green'
-	},
-
-	{
-	'theme': 'light-green',
-	'color': '#2faa60',
-	'title': 'Light Green'
-	},
-
-	{
-	'theme': 'light-violet',
-	'color': '#a464c4',
-	'title': 'Light Violet'
-	},
-
-	{
-	'theme': 'light-blue',
-	'color': '#5EADDE',
-	'title': 'Light Blue'
-	},
-
-	{'theme': 'light-gray',
-	'color': '#222',
-	'title': 'Light Gray'
-	}
 ]
 
 
